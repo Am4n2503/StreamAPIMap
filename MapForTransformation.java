@@ -13,16 +13,16 @@ public class MapForTransformation {
                 .map(employee->{//map transformation according to grades//
                     double hike=0;
                     switch(employee.getGrade()){
-                        case "A":hike=0.20;
+                        case "A":hike=1+0.20;
                         break;
-                        case "B":hike=0.10;
+                        case "B":hike=1+0.10;
                         break;
-                        case "C":hike=0.05;
+                        case "C":hike=1+0.05;
                         break;
-                        case "D":hike=0.00;
+                        case "D":hike=1+0.00;
                         break;
                     }
-                    double hikedSalary=employee.getSalary()*(1+hike);
+                    double hikedSalary=employee.getSalary()*hike;
                     employee.setNewSalary(hikedSalary);
                     return employee;
                 }).toList();
